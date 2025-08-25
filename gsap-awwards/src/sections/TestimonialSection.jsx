@@ -22,21 +22,13 @@ const TestimonialSection = () => {
 
     tl.to(".testimonials-section .first-title", {
       xPercent: 70,
-    })
-      .to(
-        ".testimonials-section .sec-title",
-        {
-          xPercent: 25,
-        },
-        "<"
-      )
-      .to(
-        ".testimonials-section .third-title",
-        {
-          xPercent: -50,
-        },
-        "<"
-      );
+    }).to(
+      ".testimonials-section .sec-title",
+      {
+        xPercent: 25,
+      },
+      "<"
+    );
 
     const pinTl = gsap.timeline({
       scrollTrigger: {
@@ -70,7 +62,6 @@ const TestimonialSection = () => {
       <div className="absolute size-full flex flex-col items-center pt-[5vw]">
         <h1 className="text-black first-title">Creator's</h1>
         <h1 className="text-light-brown sec-title">Choice</h1>
-        
       </div>
 
       <div className="pin-box">

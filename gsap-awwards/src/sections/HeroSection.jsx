@@ -2,6 +2,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { useMediaQuery } from "react-responsive";
+import { ensureFontsLoaded } from "../utils/fontLoader";
 
 const HeroSection = () => {
   const isMobile = useMediaQuery({
@@ -13,37 +14,40 @@ const HeroSection = () => {
   });
 
   useGSAP(() => {
-    const titleSplit = SplitText.create(".hero-title", {
-      type: "chars",
-    });
+    // Wait for fonts to load before using SplitText
+    ensureFontsLoaded(() => {
+      const titleSplit = SplitText.create(".hero-title", {
+        type: "chars",
+      });
 
-    const tl = gsap.timeline({
-      delay: 1,
-    });
+      const tl = gsap.timeline({
+        delay: 1,
+      });
 
-    tl.to(".hero-content", {
-      opacity: 1,
-      y: 0,
-      ease: "power1.inOut",
-    })
-      .to(
-        ".hero-text-scroll",
-        {
-          duration: 1,
-          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-          ease: "circ.out",
-        },
-        "-=0.5"
-      )
-      .from(
-        titleSplit.chars,
-        {
-          yPercent: 200,
-          stagger: 0.02,
-          ease: "power2.out",
-        },
-        "-=0.5"
-      );
+      tl.to(".hero-content", {
+        opacity: 1,
+        y: 0,
+        ease: "power1.inOut",
+      })
+        .to(
+          ".hero-text-scroll",
+          {
+            duration: 1,
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            ease: "circ.out",
+          },
+          "-=0.5"
+        )
+        .from(
+          titleSplit.chars,
+          {
+            yPercent: 200,
+            stagger: 0.02,
+            ease: "power2.out",
+          },
+          "-=0.5"
+        );
+    });
 
     const heroTl = gsap.timeline({
       scrollTrigger: {
@@ -102,12 +106,12 @@ const HeroSection = () => {
           </div>
 
           <h2>
-                Fuel your hustle with NAKPRO: Power up every move, 
-            crush every goal, and enjoy strength that tastes as good as it feels.
+            Fuel your hustle with NAKPRO: Power up every move, crush every goal,
+            and enjoy strength that tastes as good as it feels.
           </h2>
 
           <div className="hero-button">
-              <p>Chug the Gains</p>
+            <p>Chug the Gains</p>
           </div>
         </div>
       </div>
