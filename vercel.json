@@ -1,3 +1,6 @@
 {
-  "projectRoot": "gsap-awwards"
+  "buildCommand": "cd gsap-awwards && npm run build",
+  "outputDirectory": "gsap-awwards/dist",
+  "installCommand": "cd gsap-awwards && npm install",
+  "framework": "vite"
 }
