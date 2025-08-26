@@ -286,3 +286,77 @@ body::-webkit-scrollbar {
     transform: rotate(360deg);
   }
 }
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.preloader-fade-out {
+  animation: fadeOut 0.5s ease-out forwards;
+}
+
+@keyframes logoPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+.preloader-logo {
+  animation: logoPulse 2s ease-in-out infinite;
+}
+
+.preloader-progress {
+  box-shadow: 0 0 10px rgba(162, 104, 51, 0.3);
+}
+
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: translateY(-2vh);
+}
+
+.preloader-bg {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.preloader-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(
+      circle at 20% 80%,
+      rgba(162, 104, 51, 0.03) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(162, 104, 51, 0.03) 0%,
+      transparent 50%
+    );
+  pointer-events: none;
+}

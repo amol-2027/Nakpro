@@ -25,6 +25,11 @@ const FooterSection = () => {
           <h1 className="general-title text-center text-milk py-5">
             #CHUGRESPONSIBLY
           </h1>
+          <p className="text-center text-milk md:text-lg font-paragraph font-medium px-5 max-w-3xl mx-auto">
+            Nakpro® – The parent brand redefining nutrition. Our flagship
+            product Spylt Milk blends energy, protein & taste for a healthier
+            lifestyle.
+          </p>
         </div>
 
         {isMobile ? (
